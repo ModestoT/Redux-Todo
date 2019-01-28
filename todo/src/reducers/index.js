@@ -1,6 +1,10 @@
+import { NEW_TODO } from '../actions';
 
+const initialState = {
+    todos: []
+}
 
-const reducer = (state = null, action ) => {
+const reducer = (state = initialState, action ) => {
     console.log('reducer:', action);
 
     switch(action.type){
