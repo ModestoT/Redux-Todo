@@ -41,7 +41,7 @@ class TodoList extends React.Component {
                 </form>
                 <ul>
                     {this.props.todos.map(todo=> {
-                        return <li onClick={(e) => this.toggleCompleted(e,todo.id)} key={todo.id} className={todo.completed && "completed"}>
+                        return <li onClick={(e) => this.toggleCompleted(e,todo.id)} key={todo.id} className={todo.completed ? "completed" : null}>
                                 {todo.text}
                                 <button className="delete-btn" onClick={(e) => this.deleteTodo(e, todo.id)}>Delete</button>
                             </li>
