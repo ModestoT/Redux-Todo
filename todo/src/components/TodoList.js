@@ -21,7 +21,7 @@ class TodoList extends React.Component {
                 <button onClick={() => this.props.newTodo(this.state.todo) }>Add Todo</button>
                 <ul>
                     {this.props.todos.map(todo => {
-                    return <li onClick={() => this.props.toggleTodo(todo.id)}>{todo.text}</li>
+                        return <li onClick={() => this.props.toggleTodo(todo.id)}>{todo.text}</li>
                     })}
                 </ul>
             </div>
