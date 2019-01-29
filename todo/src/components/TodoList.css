@@ -1,0 +1,43 @@
+
+.todolist-container {
+    margin-top: 2%;
+}
+
+button {
+    margin-left: 1%;
+    border: none;
+    padding: .5%;
+    border-radius: 6px;
+    background: deepskyblue;
+    color: white;
+    box-shadow: 1px 0px 8px 0px grey;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+ul li {
+    border: 1px solid;
+    width: 16%;
+    margin: 5%;
+    border-radius: 3px;
+    padding: 1% 0px;
+    overflow-wrap: break-word;
+    cursor: pointer;
+}
+
+.delete-btn {
+    margin-left: 9%;
+    background: red;
+    padding: 2% 3%;
+}
+
+.completed {
+    text-decoration: line-through;
+}
