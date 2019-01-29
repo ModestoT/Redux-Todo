@@ -33,8 +33,10 @@ class TodoList extends React.Component {
     render() {
         return (
             <div>
-                <input value={this.state.todo} placeholder="...Todo" onChange={this.handleInput}/>
-                <button onClick={(e) => this.addNewTodo(e) }>Add Todo</button>
+                <form onSubmit={(e) => this.addNewTodo(e)}>
+                    <input type="text" value={this.state.todo} placeholder="...Todo" onChange={this.handleInput}/>
+                    <button>Add Todo</button>
+                </form>
                 <ul>
                     {this.props.todos.map(todo=> {
                         return <li onClick={(e) => this.toggleCompleted(e,todo.id)} key={todo.id}>
