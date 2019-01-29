@@ -3,7 +3,7 @@ export const NEW_TODO = 'NEW_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
 
-// Action Creator for new todo's 
+// Action Creator Todo's 
 let todoId = 0;
 export const newTodo = todo => {
     return {

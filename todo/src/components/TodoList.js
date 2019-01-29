@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { newTodo, toggleTodo, deleteTodo } from '../actions';
 
+import './TodoList.css';
+
 class TodoList extends React.Component {
     constructor(props){
         super(props);
@@ -32,14 +34,14 @@ class TodoList extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="todolist-container">
                 <form onSubmit={(e) => this.addNewTodo(e)}>
                     <input type="text" value={this.state.todo} placeholder="...Todo" onChange={this.handleInput}/>
                     <button>Add Todo</button>
                 </form>
                 <ul>
                     {this.props.todos.map(todo=> {
-                        return <li onClick={(e) => this.toggleCompleted(e,todo.id)} key={todo.id}>
+                        return <li onClick={(e) => this.toggleCompleted(e,todo.id)} key={todo.id} className={todo.completed && "completed"}>
                                 {todo.text}
                                 <button className="delete-btn" onClick={(e) => this.deleteTodo(e, todo.id)}>Delete</button>
                             </li>
