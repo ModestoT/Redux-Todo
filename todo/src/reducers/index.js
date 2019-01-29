@@ -3,8 +3,7 @@ import { NEW_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 const initialState = {
     todos: []
 }
-// const todos = [];
-// return [ ...state, todo ]
+
 const reducer = (state = initialState, action ) => {
     console.log('reducer:', action);
 
