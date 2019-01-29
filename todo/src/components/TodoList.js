@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { newTodo, toggleTodo } from '../actions';
+import { newTodo, toggleTodo, deleteTodo } from '../actions';
 
 class TodoList extends React.Component {
     constructor(props){
@@ -20,14 +20,27 @@ class TodoList extends React.Component {
         this.setState({todo: ''});
     }
 
+    toggleCompleted = (e, id) => {
+        e.preventDefault();
+        this.props.toggleTodo(id);
+    }
+
+    deleteTodo = (e, id) => {
+        e.preventDefault();
+        this.props.deleteTodo(id);
+
+    }
     render() {
         return (
             <div>
                 <input value={this.state.todo} placeholder="...Todo" onChange={this.handleInput}/>
                 <button onClick={(e) => this.addNewTodo(e) }>Add Todo</button>
                 <ul>
-                    {this.props.todos.map((todo, index )=> {
-                        return <li onClick={() => this.props.toggleTodo(todo.id)} key={index}>{todo.text}</li>
+                    {this.props.todos.map(todo=> {
+                        return <li onClick={(e) => this.toggleCompleted(e,todo.id)} key={todo.id}>
+                                {todo.text}
+                                <button className="delete-btn" onClick={(e) => this.deleteTodo(e, todo.id)}>Delete</button>
+                            </li>
                     })}
                 </ul>
             </div>
@@ -44,5 +57,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { newTodo, toggleTodo }
+    { newTodo, toggleTodo, deleteTodo }
 )(TodoList);
