@@ -1,9 +1,7 @@
 import { NEW_TODO, TOGGLE_TODO } from '../actions';
 
 const initialState = {
-    todos: [
-        {id:0, text: "Go for a walk", completed: false}
-    ]
+    todos: []
 }
 // const todos = [];
 // return [ ...state, todo ]
@@ -14,6 +12,7 @@ const reducer = (state = initialState, action ) => {
         case NEW_TODO:
             return {...state, todos: [...state.todos, {id: action.id, text: action.payload, completed:false}]}
         case TOGGLE_TODO: 
+        console.log(action.payload)
             return {...state, todos: state.todos.map(todo => 
                 todo.id === action.payload ? {...todo, completed: !todo.completed} : todo)}
             

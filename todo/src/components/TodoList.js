@@ -14,14 +14,20 @@ class TodoList extends React.Component {
         this.setState({ todo: e.target.value})
     }
 
+    addNewTodo = e => {
+        e.preventDefault();
+        this.props.newTodo(this.state.todo);
+        this.setState({todo: ''});
+    }
+
     render() {
         return (
             <div>
                 <input value={this.state.todo} placeholder="...Todo" onChange={this.handleInput}/>
-                <button onClick={() => this.props.newTodo(this.state.todo) }>Add Todo</button>
+                <button onClick={(e) => this.addNewTodo(e) }>Add Todo</button>
                 <ul>
-                    {this.props.todos.map(todo => {
-                        return <li onClick={() => this.props.toggleTodo(todo.id)}>{todo.text}</li>
+                    {this.props.todos.map((todo, index )=> {
+                        return <li onClick={() => this.props.toggleTodo(todo.id)} key={index}>{todo.text}</li>
                     })}
                 </ul>
             </div>
